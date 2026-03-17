@@ -26,9 +26,8 @@ while running:
             running = False
 
 
+#2 move sircle
     circle_x += speed
-
-
     if circle_x > WIDTH + circle_radius:
         circle_x = -circle_radius
 

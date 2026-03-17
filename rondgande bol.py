@@ -8,10 +8,14 @@ pygame.mixer.init()
 WIDTH, HEIGHT = 1800,900
 PADDLE_WIDTH, PADDLE_HEIGHT = 15, 100
 BALL_SIZE = 15
-WHITE = (255, 255, 255)
-BLACK = (0, 0, 0)
-BLUE = (0, 0, 255)
-RED = (255, 0, 0)
-GREEN = (0, 255, 0)
-FPS = 60
 
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("BALL")
+clock = pygame.time.Clock()
+
+running = True
+
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False

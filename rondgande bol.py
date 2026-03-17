@@ -11,13 +11,13 @@ pygame.display.set_caption("BALL")
 clock = pygame.time.Clock()
 
 #1 sircle kleur
-circle_color = (255, 0, 100)
+circle_color = (0, 0, 0)
 circle_radius = 50
 
 circle_x = WIDTH // 2
 circle_y = HEIGHT // 2
 
-speed = 0.5
+speed = 2
 
 running = True
 while running:
@@ -25,17 +25,14 @@ while running:
         if event.type == QUIT:
             running = False
 
-
 #2 move sircle
     circle_x += speed
-    if circle_x > WIDTH + circle_radius:
-        circle_x = -circle_radius
 
+    # 3 botsen op de rechterkant
+    if circle_x > WIDTH - circle_radius:
+        speed = -speed  # Verander richting bij botsing
 
     screen.fill((0, 0, 0))
-
-    pygame.draw.circle(screen, circle_color, (circle_x, circle_y), circle_radius)
-
+    pygame.draw.circle(screen, circle_color, (int(circle_x), circle_y), circle_radius)
     pygame.display.update()
-    clock.tick(60)
-
+    clock.tick(0)

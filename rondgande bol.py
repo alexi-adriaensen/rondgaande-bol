@@ -1,6 +1,6 @@
 import pygame
 from pygame.locals import *
-import random
+
 
 pygame.init()
 pygame.mixer.init()
@@ -31,11 +31,11 @@ while running:
     circle_x += speed_x
     circle_y += speed_y
 
-    # 3 botsen op de 4 zijden en willekeurige richting
+    # 4 botsen op de 4 zijden en omkeren van richting
     if circle_x > WIDTH - circle_radius or circle_x < circle_radius:
-        speed_x = random.choice([-1, 1]) * abs(speed_x)  # Willekeurige x-richting
+        speed_x = -speed_x
     if circle_y > HEIGHT - circle_radius or circle_y < circle_radius:
-        speed_y = random.choice([-1, 1]) * abs(speed_y)  # Willekeurige y-richting
+        speed_y = -speed_y
 
     screen.fill((0, 0, 0))
     pygame.draw.circle(screen, circle_color, (int(circle_x), int(circle_y)), circle_radius)
